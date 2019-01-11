@@ -113,7 +113,7 @@
         <div class="container">
             @yield('body_content')
             
-            <div class="row">
+            <div class="row fixed-bottom mb-2">
                 <div class="col-md-4"></div>
                 <div class="col-md-4 text-center">
                     <ul class="social-network social-circle text-center">

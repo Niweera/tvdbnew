@@ -10,10 +10,10 @@
                 <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="#">DMCA</a>
+                <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="/dmca">DMCA</a>
                 </li>
                 <li class="nav-item">
-                <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="#">Help</a>
+                <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="/help">Help</a>
                 </li>
                 <li class="nav-item">
                 <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="https://www.niwder.me">Blog</a>
