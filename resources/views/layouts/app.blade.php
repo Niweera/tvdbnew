@@ -17,7 +17,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ isset($title) ? $title : 'Niweera TVDB' }}</title>
+    {{-- <title>{{ isset($title) ? $title : 'Niweera TVDB' }}</title> --}}
+    <title>{{$title}}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

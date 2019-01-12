@@ -72,8 +72,8 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        $title = 'Register';
+        $title = 'Login';
 
-        return view('auth.register', compact('register'));
+        return view('auth.login', compact('title'));
     }
 }
