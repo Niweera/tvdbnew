@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body_content')
+@section('content')
   <div class="container mt-5">
     <h1 class="text-center" style="text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">Need Help? Here for You!</h1>
   </div>

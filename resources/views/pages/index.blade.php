@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('body_content')
+@section('content')
   <div style="margin-top:10px;">
     <div class="container mt-5">
       <h1 class="text-center" style="text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">Search for TV Series using keywords</h1>

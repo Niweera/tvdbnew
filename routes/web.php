@@ -17,3 +17,11 @@ Route::get('/dmca', 'PagesController@dmca');
 Route::get('/help', 'PagesController@help');
 Route::get('/', 'LiveSearch@index');
 Route::get('/action', 'LiveSearch@action')->name('pages.index.action');
+Route::resource('user','TVSeriesController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
