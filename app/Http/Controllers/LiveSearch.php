@@ -26,7 +26,6 @@ class LiveSearch extends Controller
         ->select('tvseries.*', 'storedin.*')
         ->where('tvname', 'like', '%'.$query.'%')
         ->get();
-         
       }
       else
       {
@@ -40,10 +39,16 @@ class LiveSearch extends Controller
       {
        foreach($data as $row)
        {
+        $tvid = $row->tvid;
+        $tvname = $row->tvname;
+        $tvlink = DB::table('tvdict')->where('tvid', $tvid)->value('link');
+        if(!isset($tvlink)){
+          $tvlink = "https://www.google.com/search?q=".$tvname."+TV+Series";
+        }
         $output .= '
         <tr>
          <td>'.$row->tvid.'</td>
-         <td>'.$row->tvname.'</td>
+         <td><a href="'.$tvlink.'" style=background-color:transparent;color:white>'.$row->tvname.'</a></td>
          <td>'.$row->showtype.'</td>
          <td>'.$row->remarks.'</td>
          <td>'.$row->pid.'</td>

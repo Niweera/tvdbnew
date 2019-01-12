@@ -12,4 +12,8 @@ class TVSerie extends Model
     public $primaryKey = 'tvid';
     // Timestamps
     public $timestamps = false;
+
+    public function tvlink(){
+        return $this->hasOne('App\TVDict');
+    }
 }

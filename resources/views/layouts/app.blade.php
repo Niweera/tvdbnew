@@ -17,8 +17,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <title>{{$title}}</title> --}}
-    <title>Niweera TVDB</title>
+    <title>{{ isset($title) ? $title : 'Niweera TVDB' }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -31,6 +30,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
+        .a1 {
+            color: #428BCA !important;
+            text-decoration: none !important;
+        }
+
+        .a1:hover, .a1:focus {
+            color: #2A6496 !important;
+            text-decoration: underline !important;
+        }
         /*=========================
         Icons
         ================= */
