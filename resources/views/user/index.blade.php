@@ -5,7 +5,7 @@
     @if(count($posts)>0)
         @foreach($posts as $post)
             <div class="list-group-item">
-            <h3><a href="{{ \App\Http\Controllers\TVSeriesController::returnLink($post->tvid) }}" target="_blank" style="color:black;background-color:white">{{$post->tvname}}</a></h3>
+            <h3><a href="{{$tvlink[$post->tvid]}}" target="_blank" style="color:black;background-color:white">{{$post->tvname}}</a></h3>
             </div>
         @endforeach
         <br>

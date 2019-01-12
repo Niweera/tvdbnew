@@ -27,20 +27,21 @@ class TVSeriesController extends Controller
      */
     public function index()
     {
-        $posts = TVSerie::orderBy('tvid','desc')->paginate(10);
-        $data = array('title' => 'View TVDB', 'posts' => $posts);
-        return view('user.index') -> with($data);
-    }
-    public static function returnLink($tvid)
-    {
-        $tvlink = DB::table('tvdict')->where('tvid', $tvid)->value('link');
-        $tvname = DB::table('tvseries')->where('tvid', $tvid)->value('tvname');
-        if(isset($tvlink)){
-            return $tvlink;
+        // $posts = TVSerie::orderBy('tvid','desc')->paginate(10);
+        $posts = DB::table('tvseries')
+        ->leftjoin('tvdict', 'tvseries.tvid', '=', 'tvdict.tvid')
+        ->select('tvseries.*', 'tvdict.link')
+        ->paginate(10);
+        foreach ($posts as $post) {
+            if(isset($post->link)){
+                $tvlink[$post->tvid] = $post->link;
+            }
+            else{
+                $tvlink[$post->tvid] = "https://www.google.com/search?q=".$post->tvname."+TV+Series";
+            }
         }
-        else{
-            return "https://www.google.com/search?q=".$tvname."+TV+Series";
-        }  
+        $data = array('title' => 'View TVDB', 'posts' => $posts, 'tvlink' => $tvlink);
+        return view('user.index') -> with($data);
     }
 
     /**
