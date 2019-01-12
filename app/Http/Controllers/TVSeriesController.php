@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\TVSerie;
 use App\Storedin;
 use App\TVDict;
+use DB;
 
 class TVSeriesController extends Controller
 {
@@ -27,8 +28,19 @@ class TVSeriesController extends Controller
     public function index()
     {
         $posts = TVSerie::orderBy('tvid','desc')->paginate(10);
-        $data = array('title' => 'TVDB User', 'posts' => $posts);
+        $data = array('title' => 'View TVDB', 'posts' => $posts);
         return view('user.index') -> with($data);
+    }
+    public static function returnLink($tvid)
+    {
+        $tvlink = DB::table('tvdict')->where('tvid', $tvid)->value('link');
+        $tvname = DB::table('tvseries')->where('tvid', $tvid)->value('tvname');
+        if(isset($tvlink)){
+            return $tvlink;
+        }
+        else{
+            return "https://www.google.com/search?q=".$tvname."+TV+Series";
+        }  
     }
 
     /**

@@ -13,7 +13,10 @@ class TVSerie extends Model
     // Timestamps
     public $timestamps = false;
 
+    public function tvplace(){
+        return $this->hasMany('App\Storedin','tvid');
+    }
     public function tvlink(){
-        return $this->hasOne('App\TVDict');
+        return $this->hasOne('App\TVDict','tvid');
     }
 }

@@ -12,4 +12,8 @@ class Storedin extends Model
     protected $primaryKey = 'tvid';
     // Timestamps
     public $timestamps = false;
+
+    public function tvname(){
+        return $this->belongsTo('App\TVSerie','tvid');
+    }
 }

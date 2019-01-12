@@ -13,7 +13,7 @@ class TVDict extends Model
     // Timestamps
     public $timestamps = false;
 
-    public function tvdict(){
-        return $this->belongsTo('App\TVSerie');
+    public function tvname(){
+        return $this->belongsTo('App\TVSerie','tvid');
     }
 }

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TVDict;
+use App\TVSerie;
+use App\Storedin;
+use App\User;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -23,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $title = "User Dashboard";
-        return view('home') -> with('title',$title);
+        $data = array('title' => 'User Dashboard');
+        return view('home') -> with($data);
     }
 }

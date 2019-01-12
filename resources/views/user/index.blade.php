@@ -5,7 +5,7 @@
     @if(count($posts)>0)
         @foreach($posts as $post)
             <div class="list-group-item">
-            <h3><a href="{{isset(App\TVDict::find($post->tvid)->link) ? App\TVDict::find($post->tvid)->link : "https://www.google.com/search?q=$post->tvname+TV+Series"}}" style="color:black;background-color:white">{{$post->tvname}}</a></h3>
+            <h3><a href="{{ \App\Http\Controllers\TVSeriesController::returnLink($post->tvid) }}" target="_blank" style="color:black;background-color:white">{{$post->tvname}}</a></h3>
             </div>
         @endforeach
         <br>
