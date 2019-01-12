@@ -27,7 +27,6 @@ class TVSeriesController extends Controller
      */
     public function index()
     {
-        // $posts = TVSerie::orderBy('tvid','desc')->paginate(10);
         $posts = DB::table('tvseries')
         ->leftjoin('tvdict', 'tvseries.tvid', '=', 'tvdict.tvid')
         ->select('tvseries.*', 'tvdict.link')
