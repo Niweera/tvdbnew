@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-md-4 col-lg-4"></div>
           <div class="col-md-4 col-lg-4">
-            <input type="text" class="form-control" name="search" id="search" aria-describedby="Enter TV Series Name" autocomplete="off" placeholder="Enter TV Series Name">
+            <input type="text" class="form-control" name="search" id="usersearch" aria-describedby="Enter TV Series Name" autocomplete="off" placeholder="Enter TV Series Name">
           </div>
           <div class="col-md-4 col-lg-4"></div>
         </div>
@@ -29,7 +29,7 @@
             <th>TVTo</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="usertable">
     
           </tbody>
         </table>
@@ -45,3 +45,4 @@
     </div>
   </div>
 @endsection
+

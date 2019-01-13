@@ -16,12 +16,10 @@
 Route::get('/dmca', 'PagesController@dmca');
 Route::get('/help', 'PagesController@help');
 Route::get('/', 'LiveSearch@index');
-Route::get('/action', 'LiveSearch@action')->name('pages.index.action');
+Route::get('/user/action', 'LiveSearch@action')->name('user.index.action');
+Route::get('/action', 'TVSeriesController@userAction')->name('pages.index.action');
 Route::resource('user','TVSeriesController');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

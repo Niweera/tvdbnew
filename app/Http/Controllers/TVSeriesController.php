@@ -62,35 +62,52 @@ class TVSeriesController extends Controller
      */
     public function store(Request $request)
     {
-        $this ->validate($request,[
-            'tvname' => 'required',
-            'showtype' => 'required',
-            'pid' => 'required',
-            'tvfrom' => 'required',
-            'tvto' => 'required',
-            'link' => 'required'
-        ]);
-        $post = new TVSerie;
-        $post->tvname = $request -> input('tvname');
-        $post->showtype = $request -> input('showtype');
-        $post->remarks = $request -> input('remarks');
-        $post->save();
+        if($request->get('btnSubmit') == 'Submit') {
 
-        $store = new Storedin;
-        $store->tvid = $post->tvid;
-        $store->pid = $request -> input('pid');
-        $store->tvfrom = $request -> input('tvfrom');
-        $store->tvto = $request -> input('tvto');
-        $store->save();
-
-        $dict = new TVDict;
-        $dict->tvid = $post->tvid;
-        $dict->link = $request -> input('link');
-        $dict->save();
-
-        return redirect('/user')->with('success','New Record added!');
-
-
+            $this ->validate($request,[
+                'tvname' => 'required',
+                'showtype' => 'required',
+                'pid' => 'required',
+                'tvfrom' => 'required',
+                'tvto' => 'required',
+                'link' => 'required'
+            ]);
+            $post = new TVSerie;
+            $post->tvname = $request -> input('tvname');
+            $post->showtype = $request -> input('showtype');
+            $post->remarks = $request -> input('remarks');
+            $post->save();
+    
+            $store = new Storedin;
+            $store->tvid = $post->tvid;
+            $store->pid = $request -> input('pid');
+            $store->tvfrom = $request -> input('tvfrom');
+            $store->tvto = $request -> input('tvto');
+            $store->save();
+    
+            $dict = new TVDict;
+            $dict->tvid = $post->tvid;
+            $dict->link = $request -> input('link');
+            $dict->save();
+    
+            return redirect('/user')->with('success','New Record added!');
+        
+        } else if($request->get('btnSubmit') == 'Insert New Place') {
+    
+            $validate_array = ['pid' => 'required', 'tvfrom' => 'required', 'tvto' => 'required'];
+            $this->validate($request, $validate_array);
+            
+            $store = new Storedin;
+            $tvid = $request -> input('hiddentvid');
+            $store->tvid = $tvid;
+            $store->pid = $request -> input('pid');
+            $store->tvfrom = $request -> input('tvfrom');
+            $store->tvto = $request -> input('tvto');
+            $store->save();
+    
+            return redirect('/user/'.$tvid.'/edit')->with('success','New Place Record Added!');
+    
+        }
     }
 
     /**
@@ -112,7 +129,17 @@ class TVSeriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = TVSerie::find($id);
+        $link = TVDict::find($id);
+        if(!isset($link->link)){
+            $tvlink = "";
+        }else{
+            $tvlink = $link->link;
+        }
+        $places = DB::table('storedin')->where('tvid', '=', $id)->get()->all();
+        $placesCount = DB::table('storedin')->where('tvid', '=', $id)->count();
+        $data = array('title' => 'Update TVDB', 'posts' => $post, 'link' => $tvlink, 'places' => $places, 'count' => $placesCount,'stickybottom' => 1);
+        return view('user.edit') -> with($data);
     }
 
     /**
@@ -124,7 +151,33 @@ class TVSeriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $count = $request -> input('loopcount');
+        $validate_array = ['tvname' => 'required', 'showtype' => 'required', 'link' => 'required'];
+        for($x=0; $x<$count; $x++) {
+            $validate_array['tvfrom'. $x] = 'required';
+            $validate_array['tvto'. $x] = 'required';
+        }
+        $this->validate($request, $validate_array);
+        $post = TVSerie::find($id);
+        $post->tvname = $request -> input('tvname');
+        $post->showtype = $request -> input('showtype');
+        $post->remarks = $request -> input('remarks');
+        $post->save();
+
+
+        for($x=0; $x<$count; $x++) {
+            DB::table('storedin')
+            ->where('tvid', 8)
+            ->where('pid',$request -> input('pid'. $x))
+            ->update(['tvfrom' => $request -> input('tvfrom'. $x),'tvto' => $request -> input('tvto'. $x)]);
+        }
+
+        $dict = TVDict::find($id);
+        $dict->tvid = $post->tvid;
+        $dict->link = $request -> input('link');
+        $dict->save();
+
+        return redirect('/user/'.$id.'/edit')->with('success','Record Updated!');
     }
 
     /**
@@ -136,5 +189,61 @@ class TVSeriesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function userAction(Request $request)
+    {
+     if($request->ajax())
+     {
+      $output = '';
+      $query = $request->get('query');
+      if($query != '')
+      {
+       $data = DB::table('tvseries')
+        ->join('storedin', 'tvseries.tvid', '=', 'storedin.tvid')
+        ->select('tvseries.*', 'storedin.*')
+        ->where('tvname', 'like', '%'.$query.'%')
+        ->get();
+      }
+      else
+      {
+       $data = DB::table('tvseries')
+        ->join('storedin', 'tvseries.tvid', '=', 'storedin.tvid')
+        ->select('tvseries.*', 'storedin.*')
+        ->get();
+      }
+      $total_row = $data->count();
+      if($total_row > 0)
+      {
+       foreach($data as $row)
+       {
+        $output .= '
+        <tr>
+         <td>'.$row->tvid.'</td>
+         <td><a href="/user/'.$row->tvid.'/edit" style="background-color:transparent;color:white" target="_blank">'.$row->tvname.'</a></td>
+         <td>'.$row->showtype.'</td>
+         <td>'.$row->remarks.'</td>
+         <td>'.$row->pid.'</td>
+         <td>'.$row->tvfrom.'</td>
+         <td>'.$row->tvto.'</td>
+        </tr>
+        ';
+       }
+      }
+      else
+      {
+       $output = '
+       <tr>
+        <td align="center" colspan="7">No Data Found</td>
+       </tr>
+       ';
+      }
+      $data = array(
+       'table_data'  => $output,
+       'total_data'  => $total_row
+      );
+
+      echo json_encode($data);
+     }
     }
 }

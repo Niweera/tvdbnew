@@ -29,10 +29,10 @@
                 {{Form::text('tvfrom', '', ['class' => 'form-control', 'placeholder' => 'Enter TV From'])}}
             </div>
             <div class = "form-group">
-                {{Form::label('tvto','Remarks')}}
+                {{Form::label('tvto','TV To')}}
                 {{Form::text('tvto', '', ['class' => 'form-control', 'placeholder' => 'Enter TV To'])}}
             </div>
-            {{Form::submit('Submit', ['class' => 'btn btn-dark'])}}
+            {{Form::submit('Submit', ['class' => 'btn btn-dark', 'name' => 'btnSubmit'])}}
 
         {!! Form::close() !!}
     </div>

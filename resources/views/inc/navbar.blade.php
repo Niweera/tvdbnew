@@ -42,6 +42,12 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-left" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="/user/">
+                                    View Data
+                                </a>
+                                <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="/user/create">
+                                    Insert Data
+                                </a>
                                 <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

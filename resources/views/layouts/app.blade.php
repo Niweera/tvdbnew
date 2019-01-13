@@ -133,21 +133,26 @@
         <div class="container mt-2">
             @include('inc.messages')
             @yield('content')
-            
-            <div class="row fixed-bottom mb-2">
-                <div class="col-md-4"></div>
-                <div class="col-md-4 text-center">
-                    <ul class="social-network social-circle text-center">
-                        <li><a href="https://www.facebook.com/Niweera" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://twitter.com/Niweera" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://plus.google.com/+NipunaWeerasekara" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>				
+        
+        @if(!isset($stickybottom))
+        <footer class="footer fixed-bottom">
+        @else
+        <footer class="footer">
+        @endif
+                <div class="row mb-2">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 text-center">
+                        <ul class="social-network social-circle text-center">
+                            <li><a href="https://www.facebook.com/Niweera" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/Niweera" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://plus.google.com/+NipunaWeerasekara" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>				
+                    </div>
+                    <div class="col-md-4"></div>
                 </div>
-                <div class="col-md-4"></div>
-            </div>
+            </footer>
         </div>
 
-        
 
         <!--JS files needed for bootstrap to work-->
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -180,6 +185,28 @@ $(document).ready(function(){
     $(document).on('keyup', '#search', function(){
     var query = $(this).val();
     fetch_customer_data(query);
+    });
+
+    fetch_customer_data_user();
+
+    function fetch_customer_data_user(query = '')
+    {
+    $.ajax({
+    url:"{{ route('user.index.action') }}",
+    method:'GET',
+    data:{query:query},
+    dataType:'json',
+    success:function(data)
+    {
+    $('#usertable').html(data.table_data);
+    $('#total_records').text(data.total_data);
+    }
+    })
+    }
+
+    $(document).on('keyup', '#usersearch', function(){
+    var query = $(this).val();
+    fetch_customer_data_user(query);
     });
 });
 </script>
