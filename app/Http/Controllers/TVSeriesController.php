@@ -167,7 +167,7 @@ class TVSeriesController extends Controller
 
         for($x=0; $x<$count; $x++) {
             DB::table('storedin')
-            ->where('tvid', 8)
+            ->where('tvid', $id)
             ->where('pid',$request -> input('pid'. $x))
             ->update(['tvfrom' => $request -> input('tvfrom'. $x),'tvto' => $request -> input('tvto'. $x)]);
         }
