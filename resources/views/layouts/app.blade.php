@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow">
     <meta name="contact" content="w.nipuna@gmail.com">
     <meta name="author" content="Nipuna Weerasekara">
-    <link rel="icon" href="https://www.niwder.me/tvdb/logo.jpg">
+    <link rel="icon" href="logo.jpg">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
