@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">
         <div class="container">
-            <a class="navbar-brand" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:24px" href="/">Niweera TVDB</a>
+            <a class="navbar-brand" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:24px" href="{{ route('landing') }}">Niweera TVDB</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -10,18 +10,18 @@
                 <ul class="navbar-nav mr-auto">
                     @guest
                     <li class="nav-item">
-                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="{{ route('landing') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     @else
                     <li class="nav-item">
-                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="/home">User Home <span class="sr-only">(current)</span></a>
+                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="{{ route('home') }}">User Home <span class="sr-only">(current)</span></a>
                     </li>
                     @endguest
                     <li class="nav-item">
-                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="/dmca">DMCA</a>
+                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="{{ route('dmca') }}">DMCA</a>
                     </li>
                     <li class="nav-item">
-                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="/help">Help</a>
+                    <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="{{ route('help') }}">Help</a>
                     </li>
                     <li class="nav-item">
                     <a style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" class="nav-link" href="https://www.niwder.me">Blog</a>
@@ -42,10 +42,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-left" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:20px" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="/user/">
+                                <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="{{ route('user.index') }}">
                                     View Data
                                 </a>
-                                <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="/user/create">
+                                <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="{{ route('user.create') }}">
                                     Insert Data
                                 </a>
                                 <a class="dropdown-item" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white; font-size:15px" href="{{ route('logout') }}"

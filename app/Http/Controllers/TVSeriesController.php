@@ -220,7 +220,7 @@ class TVSeriesController extends Controller
         $output .= '
         <tr>
          <td>'.$row->tvid.'</td>
-         <td><a href="/user/'.$row->tvid.'/edit" style="background-color:transparent;color:white" target="_blank">'.$row->tvname.'</a></td>
+         <td><a href="'.url('/').'/user/'.$row->tvid.'/edit" style="background-color:transparent;color:white" target="_blank">'.$row->tvname.'</a></td>
          <td>'.$row->showtype.'</td>
          <td>'.$row->remarks.'</td>
          <td>'.$row->pid.'</td>

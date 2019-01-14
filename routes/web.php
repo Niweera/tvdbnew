@@ -13,9 +13,9 @@
 
 
 // Route::get('/', 'PagesController@index');
-Route::get('/dmca', 'PagesController@dmca');
-Route::get('/help', 'PagesController@help');
-Route::get('/', 'LiveSearch@index');
+Route::get('/dmca', 'PagesController@dmca')->name('dmca');
+Route::get('/help', 'PagesController@help')->name('help');
+Route::get('/', 'LiveSearch@index')->name('landing');
 Route::get('/user/action', 'LiveSearch@action')->name('user.index.action');
 Route::get('/action', 'TVSeriesController@userAction')->name('pages.index.action');
 Route::resource('user','TVSeriesController');
