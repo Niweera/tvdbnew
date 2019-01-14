@@ -16,7 +16,7 @@
         </div>
       </form>
     </div>
-    <div class="table-responsive mt-4" style="height:300px;overflow-y: scroll;scrollbar-width: none;">
+    <div class="table-responsive mt-4" style="height:290px;overflow-y: scroll;scrollbar-width: none;">
         <table class="table table-dark table-striped">
           <thead class="thead-light">
             <tr>
