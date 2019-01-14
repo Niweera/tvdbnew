@@ -1,8 +1,8 @@
 -- MySQL dump 10.16  Distrib 10.1.26-MariaDB, for Win32 (AMD64)
 --
--- Host: us-cdbr-iron-east-01.cleardb.net    Database: heroku_f53b31402ca4c3f
+-- Host: jsk3f4rbvp8ayd7w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com    Database: yrmvr894upk0hrq2
 -- ------------------------------------------------------
--- Server version	5.5.56-log
+-- Server version	5.7.23-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -264,4 +264,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-14 17:13:31
+-- Dump completed on 2019-01-14 18:27:53

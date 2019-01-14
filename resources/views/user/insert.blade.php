@@ -17,19 +17,19 @@
                 {{Form::text('remarks', '', ['class' => 'form-control', 'placeholder' => 'Enter Remarks'])}}
             </div>
             <div class = "form-group">
-                {{Form::label('link','Link')}}
+                {{Form::label('link','Link*')}}
                 {{Form::text('link', '', ['class' => 'form-control', 'placeholder' => 'Enter Wikipedia Link'])}}
             </div>
             <div class = "form-group">
-                {{Form::label('pid','Place')}}
+                {{Form::label('pid','Place*')}}
                 {{Form::select('pid', ['b1' => 'b1', 'b2' => 'b2', 'b3' => 'b3', 'b4' => 'b4', 'b5' => 'b5', 'l' => 'l', 'p' => 'p'], 'l',['class' => 'form-control'])}}
             </div>
             <div class = "form-group">
-                {{Form::label('tvfrom','TV From')}}
+                {{Form::label('tvfrom','TV From*')}}
                 {{Form::text('tvfrom', '', ['class' => 'form-control', 'placeholder' => 'Enter TV From'])}}
             </div>
             <div class = "form-group">
-                {{Form::label('tvto','TV To')}}
+                {{Form::label('tvto','TV To*')}}
                 {{Form::text('tvto', '', ['class' => 'form-control', 'placeholder' => 'Enter TV To'])}}
             </div>
             {{Form::submit('Submit', ['class' => 'btn btn-dark', 'name' => 'btnSubmit'])}}
