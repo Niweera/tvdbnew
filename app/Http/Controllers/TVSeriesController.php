@@ -40,7 +40,7 @@ class TVSeriesController extends Controller
                 $tvlink[$post->tvid] = "https://www.google.com/search?q=".$post->tvname."+TV+Series";
             }
         }
-        $data = array('title' => 'View TVDB', 'posts' => $posts, 'tvlink' => $tvlink);
+        $data = array('title' => 'View TVDB', 'posts' => $posts, 'tvlink' => $tvlink, 'stickybottom' => 1);
         return view('user.index') -> with($data);
     }
 
