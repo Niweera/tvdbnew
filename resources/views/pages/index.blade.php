@@ -2,10 +2,10 @@
 
 @section('content')
   <div style="margin-top:10px;">
-    <div class="container mt-5">
+    <div class="container mt-2">
       <h1 class="text-center" style="text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">Search for TV Series using keywords</h1>
     </div>
-    <div class="container mt-4 text-center">
+    <div class="container mt-2 text-center">
       <form>
         <div class="row">
           <div class="col-md-4 col-lg-4"></div>
@@ -16,7 +16,7 @@
         </div>
       </form>
     </div>
-    <div class="table-responsive mt-4" style="height:290px;overflow-y: scroll;scrollbar-width: none;">
+    <div class="table-responsive mt-2" style="height:338px;overflow-y: scroll;scrollbar-width: none;">
         <table class="table table-dark table-striped">
           <thead class="thead-light">
             <tr>
@@ -34,7 +34,7 @@
           </tbody>
         </table>
     </div>
-    <div class="jumbotron mt-5" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">
+    <div class="jumbotron mt-2 pt-4 pb-4" style="background-color: #3b3a30;text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">
       <p class="font-weight-bold text-center h2">
           "I must not fear. Fear is the mind-killer. Fear is the little-death that
           brings total obliteration.

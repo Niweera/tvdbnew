@@ -203,9 +203,7 @@ class TVSeriesController extends Controller
 
         } catch(QueryException $ex){ 
             return redirect('/user/'.$id.'/edit')->with('error',$ex->getMessage());
-        }
-
-        
+        }  
     }
 
     /**
@@ -214,9 +212,14 @@ class TVSeriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        try {
+            DB::table('storedin')->where('tvid', $id)->where('pid', $request ->input('pid'))->where('tvfrom', $request ->input('tvfrom'))->where('tvto', $request ->input('tvto'))->delete();
+            return redirect('/user/'.$id.'/edit')->with('success','Record Deleted!');
+        } catch(QueryException $ex){ 
+            return redirect('/user/'.$id.'/edit')->with('error',$ex->getMessage());
+        }
     }
 
     function userAction(Request $request)

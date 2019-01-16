@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-center mt-5 mb-4" style="text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">TV Series Data</h1>
-    <div class="container mt-4 text-center">
+    <h1 class="text-center mt-2" style="text-shadow: 0 1px 3px rgba(0,0,0,.5);color:white">TV Series Data</h1>
+    <div class="container mt-2 text-center">
         <form>
             <div class="row">
             <div class="col-md-4 col-lg-4"></div>
@@ -13,7 +13,7 @@
             </div>
         </form>
     </div>
-    <div class="table-responsive mt-4" style="height:626px;overflow-y: scroll;scrollbar-width: none;margin-bottom:33px">
+    <div class="table-responsive mt-2" style="height:529px;overflow-y: scroll;scrollbar-width: none;margin-bottom:39px">
         <table class="table table-dark table-striped">
             <thead class="thead-light">
             <tr>

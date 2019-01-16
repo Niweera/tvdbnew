@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow">
     <meta name="contact" content="w.nipuna@gmail.com">
     <meta name="author" content="Nipuna Weerasekara">
-    <link rel="icon" href="logo.jpg">
+    <link rel="icon" href="{{ url('/') }}/logo.jpg">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -133,30 +133,22 @@
         <div class="container mt-2">
             @include('inc.messages')
             @yield('content')
-        
-        @if(!isset($stickybottom))
-        <footer class="footer fixed-bottom">
-        @else
-        <footer class="footer">
-        @endif
-                <div class="row mb-2">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4 text-center">
-                        <ul class="social-network social-circle text-center">
-                            <li><a href="https://www.facebook.com/Niweera" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://twitter.com/Niweera" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://plus.google.com/+NipunaWeerasekara" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>				
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
-            </footer>
         </div>
-
-
-        <!--JS files needed for bootstrap to work-->
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> --}}
+        <footer class="footer fixed-bottom mb-1">
+            <div class="row">
+                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-5 col-5 text-left">
+                    <ul class="social-network social-circle text-center">
+                        <li><a href="https://www.facebook.com/Niweera" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-2 col-2"></div>
+                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-5 col-5 text-right">
+                    <ul class="social-network social-circle text-center">
+                        <li><a href="https://twitter.com/Niweera" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="{{ asset('js/app.js')}}"></script>
 </body>
