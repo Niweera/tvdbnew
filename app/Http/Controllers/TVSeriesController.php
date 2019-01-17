@@ -215,6 +215,8 @@ class TVSeriesController extends Controller
     public function destroy(Request $request,$id)
     {
         try {
+            $validate_array = ['pid' => 'required', 'tvfrom' => 'required', 'tvto' => 'required'];
+            $this->validate($request, $validate_array);
             DB::table('storedin')->where('tvid', $id)->where('pid', $request ->input('pid'))->where('tvfrom', $request ->input('tvfrom'))->where('tvto', $request ->input('tvto'))->delete();
             return redirect('/user/'.$id.'/edit')->with('success','Record Deleted!');
         } catch(QueryException $ex){ 
