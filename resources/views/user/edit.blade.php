@@ -6,7 +6,7 @@
         {!! Form::open(['action' => ['TVSeriesController@update',$posts->tvid], 'method' => 'POST', 'class' => 'mb-4']) !!}
             <div class="form-row mt-1">
                 <div class="col-md-3 col-lg-3 col-sm-12">
-                    {{Form::label('tvname','TV Name*')}}
+                    {{Form::label('tvname','TV Name')}}
                 </div>
                 <div class="col-md-9 col-lg-9 col-sm-12">
                     {{Form::text('tvname', $posts->tvname, ['class' => 'form-control', 'placeholder' => 'Enter TV Name'])}}
@@ -14,7 +14,7 @@
             </div>
             <div class="form-row mt-1">
                 <div class="col-md-3 col-lg-3 col-sm-12">
-                    {{Form::label('showtype','Show Type*')}}
+                    {{Form::label('showtype','Show Type')}}
                 </div>
                 <div class="col-md-9 col-lg-9 col-sm-12">
                     {{Form::select('showtype', ['Airing' => 'Airing', 'Break' => 'Break', 'Completed' => 'Completed'], $posts->showtype,['class' => 'form-control'])}}
